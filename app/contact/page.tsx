@@ -10,7 +10,7 @@ export default function ContactPage() {
     <section className="section-pad" style={{ paddingTop: 160 }}>
       <Container>
         <Eyebrow>Contact</Eyebrow>
-        <h1 className="h-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
+        <h1 className="t-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
           Let&apos;s <em className="italic-accent">talk</em>.
         </h1>
         <p className="lead" style={{ marginTop: 28, maxWidth: 640 }}>

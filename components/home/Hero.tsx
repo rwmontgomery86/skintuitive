@@ -25,7 +25,7 @@ export function Hero() {
               <span className="pill">Free 15-min virtual consult</span>
             </div>
             <Eyebrow>Holistic medical aesthetics</Eyebrow>
-            <h1 className="h-display hero__title">Skin that ages on <em>your</em> terms.</h1>
+            <h1 className="t-display hero__title">Skin that ages on <em>your</em> terms.</h1>
             <p className="lead hero__lead">
               We pair medical-grade aesthetics with functional medicine, so what shows on your face reflects how your body&apos;s actually doing — not a one-size-fits-all protocol.
             </p>

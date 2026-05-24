@@ -10,7 +10,7 @@ export default function ProvidersPage() {
       <section className="section-pad" style={{ paddingTop: 160 }}>
         <Container>
           <Eyebrow>Our team</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
+          <h1 className="t-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
             Hands you can <em className="italic-accent">trust</em>.
           </h1>
           <p className="lead" style={{ marginTop: 28, maxWidth: 640 }}>

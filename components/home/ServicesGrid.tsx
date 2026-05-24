@@ -14,7 +14,7 @@ export function ServicesGrid() {
         <div className="svc-head">
           <div>
             <Eyebrow>Treatments</Eyebrow>
-            <h2 className="h-1" style={{ marginTop: 20 }}>Signature<br />services.</h2>
+            <h2 className="t-h1" style={{ marginTop: 20 }}>Signature<br />services.</h2>
           </div>
           <TextLink href="/services">All treatments</TextLink>
         </div>

@@ -24,7 +24,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <section className="section-pad" style={{ paddingTop: 160 }}>
         <Container>
           <Eyebrow>{s.number} / {s.category}</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 20, maxWidth: "14ch" }}>
+          <h1 className="t-display" style={{ marginTop: 20, maxWidth: "14ch" }}>
             {s.title}
           </h1>
           <p className="lead" style={{ marginTop: 28, maxWidth: 640 }}>

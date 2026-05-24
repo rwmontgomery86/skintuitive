@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Eyebrow } from "./Eyebrow";
 
-// Two-column header used 20+ times: 0.7fr eyebrow-left / 1.3fr h-1-right
+// Two-column header used 20+ times: 0.7fr eyebrow-left / 1.3fr t-h1-right
 export function SectionHeader({
   eyebrow,
   children,

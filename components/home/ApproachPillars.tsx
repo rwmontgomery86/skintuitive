@@ -33,7 +33,7 @@ export function ApproachPillars() {
         >
           <div><Eyebrow>Our approach</Eyebrow></div>
           <div>
-            <h2 className="h-1">Skin is the mirror.<br />We treat what&apos;s <em className="italic-accent">behind it</em>.</h2>
+            <h2 className="t-h1">Skin is the mirror.<br />We treat what&apos;s <em className="italic-accent">behind it</em>.</h2>
           </div>
         </div>
         <div className="approach-grid">

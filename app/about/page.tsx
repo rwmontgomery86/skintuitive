@@ -10,7 +10,7 @@ export default function AboutPage() {
       <section className="section-pad" style={{ paddingTop: 160 }}>
         <Container>
           <Eyebrow>About</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 20, maxWidth: "18ch" }}>
+          <h1 className="t-display" style={{ marginTop: 20, maxWidth: "18ch" }}>
             Built differently <em className="italic-accent">on purpose</em>.
           </h1>
           <p className="lead" style={{ marginTop: 28, maxWidth: 640 }}>

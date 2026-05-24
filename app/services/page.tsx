@@ -14,7 +14,7 @@ export default function ServicesPage() {
       <section className="section-pad" style={{ paddingTop: 160 }}>
         <Container>
           <Eyebrow>Treatments</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
+          <h1 className="t-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
             Every protocol, <em className="italic-accent">built for you</em>.
           </h1>
         </Container>

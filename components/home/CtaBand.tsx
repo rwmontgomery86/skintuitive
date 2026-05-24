@@ -34,7 +34,7 @@ export function CtaBand({
           </div>
           <div className="cta__copy">
             <Eyebrow>{eyebrow}</Eyebrow>
-            <h2 className="h-1" style={{ marginTop: 20 }}>{title}</h2>
+            <h2 className="t-h1" style={{ marginTop: 20 }}>{title}</h2>
             <p className="lead">{lead}</p>
             <div className="cta__ctas">
               <ButtonLink variant="primary" arrow href={site.booking.href}>
