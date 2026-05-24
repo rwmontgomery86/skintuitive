@@ -1,52 +1,45 @@
-import Image from "next/image";
-import Link from "next/link";
+import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Arrow } from "@/components/ui/Arrow";
+import { ServiceFinder } from "@/components/services/ServiceFinder";
+import { CompareTable } from "@/components/services/CompareTable";
 import { CtaBand } from "@/components/home/CtaBand";
 import { services } from "@/content/services";
 
-export const metadata = { title: "Services" };
+export const metadata = {
+  title: "Treatments",
+  description:
+    "Microneedling, plasma fibroblast, corrective facials, holistic skin condition treatments, hyperpigmentation revision, and permanent makeup in Sharpsburg, GA.",
+};
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="section-pad" style={{ paddingTop: 160 }}>
+      <PageHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "Treatments" }]}
+        eyebrow="Treatment menu"
+        title={
+          <>
+            Every service starts<br />with a <em className="italic-accent">consultation</em>.
+          </>
+        }
+        lead="We don't sell packages cold. We assess your skin, your goals, and your history — then propose a protocol. Below is what's possible, not what's prescribed."
+      />
+      <section style={{ paddingTop: 0, paddingBottom: "clamp(80px, 10vw, 144px)" }}>
         <Container>
-          <Eyebrow>Treatments</Eyebrow>
-          <h1 className="t-display" style={{ marginTop: 20, maxWidth: "16ch" }}>
-            Every protocol, <em className="italic-accent">built for you</em>.
-          </h1>
+          <ServiceFinder services={services} />
         </Container>
       </section>
-      <section className="section-pad-tight">
-        <Container>
-          <div className="svc-grid">
-            {services.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="svc">
-                <div className="svc__media">
-                  <span className="svc__num">{s.number} / {s.category}</span>
-                  <Image
-                    src={s.cardImage.src}
-                    alt={s.cardImage.alt}
-                    fill
-                    sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
-                    className="svc__media-img"
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <h3 className="svc__title">{s.title}</h3>
-                <p className="svc__desc">{s.shortDescription}</p>
-                <div className="svc__foot">
-                  <span className="price">{s.priceLabel}</span>
-                  <span className="more">Learn more <Arrow size={12} /></span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-      <CtaBand />
+      <CompareTable />
+      <CtaBand
+        eyebrow="Free virtual consult"
+        title={
+          <>
+            Not sure where to start?<br />We&apos;ll point you there.
+          </>
+        }
+        lead="15 minutes by phone or Zoom. We'll review your goals and recommend a starting protocol."
+        image={{ src: "/images/stock/medspaservices_img.jpg", alt: "Skintuitive treatment room" }}
+      />
     </>
   );
 }

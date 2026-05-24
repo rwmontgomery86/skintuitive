@@ -910,6 +910,190 @@
 .do-dont__col--dont li { color: var(--ink-3); }
 @media (max-width: 900px) { .do-dont { grid-template-columns: 1fr; } }
 
+/* ────── Services: finder (sidebar) + service rows + compare table ────── */
+.finder {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.finder__filters {
+  position: sticky;
+  top: 110px;
+}
+.finder__filters h4 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.chip-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 32px;
+}
+.chip {
+  font-size: 12.5px;
+  padding: 8px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-2);
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.chip:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.finder__count {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-2);
+  letter-spacing: 0.06em;
+}
+.finder__count strong { color: var(--ink); font-weight: 500; }
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.svc-row:first-of-type { border-top: 0; padding-top: 0; }
+.svc-row__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  max-height: 560px;
+  background: var(--bg-3);
+  overflow: hidden;
+}
+.svc-row__num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.svc-row h2 {
+  font-size: clamp(32px, 3.4vw, 48px);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-weight: 300;
+  margin-bottom: 24px;
+  max-width: 14ch;
+}
+.svc-row__desc {
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.svc-row__concerns {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 32px;
+}
+.svc-row__concerns span {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-2);
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+}
+.svc-row__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+.svc-row__specs .spec-lab {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.svc-row__specs .spec-val {
+  font-size: 16px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.svc-row__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.compare-table__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.compare-table thead th {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 500;
+  text-align: left;
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line-2);
+}
+.compare-table tbody td {
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  vertical-align: top;
+}
+.compare-table tbody td.svc-name {
+  color: var(--ink);
+  font-weight: 500;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  font-size: 17px;
+}
+.compare-table__price {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .finder { grid-template-columns: 1fr; gap: 32px; }
+  .finder__filters { position: static; }
+  .svc-row { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+  .svc-row__specs { grid-template-columns: 1fr; }
+  .compare-table { font-size: 13px; }
+  .compare-table thead th, .compare-table tbody td { padding: 12px 8px; }
+  .compare-table__head { grid-template-columns: 1fr; }
+}
+
 /* ────── Approach pillars ────── */
 .approach-grid {
   display: grid;
