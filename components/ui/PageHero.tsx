@@ -11,11 +11,13 @@ export function PageHero({
   eyebrow,
   title,
   lead,
+  children,
 }: {
   crumbs: Crumb[];
   eyebrow: string;
   title: ReactNode;
   lead?: string;
+  children?: ReactNode;
 }) {
   return (
     <section className="ph">
@@ -33,6 +35,7 @@ export function PageHero({
           {title}
         </h1>
         {lead ? <p className="ph__lead">{lead}</p> : null}
+        {children}
       </Container>
     </section>
   );
