@@ -16,12 +16,6 @@ export function ProviderSpotlight() {
             sizes="(max-width: 900px) 100vw, 50vw"
             style={{ objectFit: "cover" }}
           />
-          {m.spotlightQuote ? (
-            <div className="spotlight__pull">
-              <p>&ldquo;{m.spotlightQuote.text}&rdquo;</p>
-              <span className="who">{m.spotlightQuote.who}</span>
-            </div>
-          ) : null}
         </div>
         <div className="spotlight__copy">
           <span className="spotlight__role">{m.role}</span>

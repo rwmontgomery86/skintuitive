@@ -12,16 +12,12 @@ export function Hero() {
           <div className="hero__media">
             <Image
               src="/images/hero.jpg"
-              alt="Editorial portrait — founder hands cupping patient face, soft window light"
+              alt="Editorial portrait — soft natural light"
               fill
               priority
               sizes="(max-width: 900px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
             />
-            <div className="hero__media-badge">
-              <span className="meta">PHOTOGRAPHED BY</span>
-              <strong>Skintuitive · Sharpsburg, GA</strong>
-            </div>
           </div>
           <div className="hero__copy">
             <div className="hero__pill-row">
