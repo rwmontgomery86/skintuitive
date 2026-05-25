@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { medicalBusinessJsonLd } from "@/lib/jsonld";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -38,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-palette="clinical" className={`${inter.variable} ${interTight.variable}`}>
       <body>
+        <JsonLd data={medicalBusinessJsonLd()} />
         <Nav />
         <main>{children}</main>
         <Footer />

@@ -1822,6 +1822,455 @@ details.faq[open] summary::after { content: "−"; }
 .floating-cta .btn--ghost { background: var(--bg); }
 @media (max-width: 720px) { .floating-cta { display: flex; } }
 
+/* ──────────────────────────────────────────────────────
+   Service Detail — per-treatment page template
+   Ported from design_handoff_skintuitive/pages.css (.sd-*)
+   image-slot custom elements rewritten to <div class="sd-*__frame"> wrapping next/image
+   ────────────────────────────────────────────────────── */
+
+/* SD hero: page hero + spec strip + image */
+.sd-hero {
+  position: relative;
+  padding-top: clamp(140px, 14vw, 220px);
+  padding-bottom: clamp(48px, 6vw, 96px);
+  overflow: hidden;
+}
+.sd-hero::before {
+  content: "";
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.sd-hero__inner { position: relative; z-index: 1; }
+
+.sd-hero__split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 5vw, 96px);
+  align-items: end;
+}
+.sd-hero__left .ph__crumbs { margin-bottom: 36px; }
+.sd-hero__cat {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.sd-hero__title {
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 300;
+  max-width: 14ch;
+  margin-bottom: 32px;
+}
+.sd-hero__title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 200;
+}
+.sd-hero__lead {
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin-bottom: 36px;
+}
+.sd-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.sd-hero__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  max-height: 640px;
+  overflow: hidden;
+  background: var(--bg-3);
+}
+
+/* Spec strip — 4 col under hero */
+.sd-specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: clamp(40px, 5vw, 72px);
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.sd-specs .spec {
+  padding: 0 32px;
+  border-left: 1px solid var(--line);
+}
+.sd-specs .spec:first-child { padding-left: 0; border-left: 0; }
+.sd-specs .spec .lab {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.sd-specs .spec .val {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.sd-specs .spec .val small {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-left: 6px;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Two-column section leader (eyebrow + headline) — used by most sd sections */
+.sd-leader {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: end;
+  margin-bottom: 32px;
+}
+@media (max-width: 900px) {
+  .sd-leader { grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
+}
+
+/* Overview: best-for cards */
+.sd-bestfor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.sd-bestfor__item {
+  padding: 32px;
+  border: 1px solid var(--line-2);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sd-bestfor__item .icon {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 200;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.sd-bestfor__item h3 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  margin: 0;
+}
+.sd-bestfor__item p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; margin: 0; }
+
+/* How it works — process steps */
+.sd-process {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.sd-step {
+  border-top: 1px solid var(--accent);
+  padding-top: 20px;
+}
+.sd-step__num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 56px;
+}
+.sd-step h3 {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  line-height: 1.16;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.sd-step p { color: var(--ink-2); font-size: 14.5px; line-height: 1.6; margin: 0; }
+
+/* Visit timeline */
+.sd-timeline {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  margin-top: 40px;
+}
+.sd-timeline__row { display: contents; }
+.sd-timeline__row > * {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.sd-timeline__row:first-child > * { border-top: 0; padding-top: 0; }
+.sd-timeline__when {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.sd-timeline__what h3 {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+.sd-timeline__what p { color: var(--ink-2); margin: 0; line-height: 1.6; max-width: 620px; font-size: 15px; }
+
+/* Provider mini card */
+.sd-provider {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.sd-provider__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  max-height: 480px;
+  overflow: hidden;
+  background: var(--bg-3);
+}
+.sd-provider h3 {
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-weight: 300;
+  margin: 20px 0 16px;
+}
+.sd-provider h3 .cred {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+  margin-left: 8px;
+}
+.sd-provider h3 small {
+  display: block;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  font-family: var(--font-body);
+  margin-top: 16px;
+}
+.sd-provider p { color: var(--ink-2); font-size: 16px; line-height: 1.6; margin: 0 0 28px; max-width: 540px; }
+.sd-provider__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Prep + aftercare two-col */
+.sd-care {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 56px;
+}
+.sd-care__col {
+  counter-reset: care-counter;
+}
+.sd-care__col h3 {
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.025em;
+  font-weight: 300;
+  margin: 16px 0 28px;
+}
+.sd-care__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sd-care__col li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+.sd-care__col li:last-child { border-bottom: 1px solid var(--line); }
+.sd-care__col li::before {
+  content: counter(care-counter, decimal-leading-zero);
+  counter-increment: care-counter;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Pricing card */
+.sd-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.sd-pricing__card {
+  padding: 36px 32px;
+  border: 1px solid var(--line-2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+.sd-pricing__card--feat {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 4%, transparent);
+}
+.sd-pricing__card--feat::before {
+  content: "MOST POPULAR";
+  position: absolute;
+  top: -10px; left: 24px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+.sd-pricing__lbl {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+.sd-pricing__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  margin: 0;
+}
+.sd-pricing__price {
+  font-family: var(--font-display);
+  font-size: 44px;
+  letter-spacing: -0.03em;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+  margin: 8px 0;
+}
+.sd-pricing__price small {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-left: 6px;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+}
+.sd-pricing__incl {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.sd-pricing__incl li {
+  padding-left: 18px;
+  position: relative;
+}
+.sd-pricing__incl li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+.sd-pricing__note {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 32px;
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+/* Related treatments cards */
+.sd-related {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.sd-related__card {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+.sd-related__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: var(--bg-3);
+  transition: opacity 0.3s var(--ease);
+}
+.sd-related__card:hover .sd-related__media { opacity: 0.86; }
+.sd-related__card .cat {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.sd-related__card .name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+.sd-related__card .meta {
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .sd-hero__split { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .sd-specs { grid-template-columns: 1fr 1fr; gap: 16px 0; padding: 24px 0; }
+  .sd-specs .spec { padding: 0 16px; }
+  .sd-specs .spec:nth-child(3) { border-left: 0; padding-left: 0; }
+  .sd-bestfor, .sd-process, .sd-related, .sd-pricing { grid-template-columns: 1fr; }
+  .sd-timeline { grid-template-columns: 1fr; gap: 16px; }
+  .sd-provider { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
+  .sd-care { grid-template-columns: 1fr; gap: 32px; }
+}
+
 /* ────── Newsletter ────── */
 .newsletter { display: flex; flex-direction: column; gap: 10px; max-width: 320px; }
 .newsletter__row { display: flex; gap: 0; }
